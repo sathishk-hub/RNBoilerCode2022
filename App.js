@@ -102,9 +102,11 @@ function App() {
           }}
         >
           <Section title="Step One">
-            Edit
-            <Text style={styles.highlight}>App.js</Text>
-            to change this screen and then come back to see your edits.
+            <>
+              Edit
+              <Text style={styles.highlight}>App.js</Text>
+              to change this screen and then come back to see your edits.
+            </>
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
@@ -121,8 +123,11 @@ function App() {
     </SafeAreaView>
   );
 }
+
+export default App;
+
 Section.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   title: PropTypes.string,
 };
 
@@ -130,5 +135,3 @@ Section.defaultProps = {
   children: '',
   title: '',
 };
-
-export default App;
